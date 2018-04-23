@@ -1,2 +1,3 @@
 *.pyc
 charsheet5e/venv/
+__pycache__/
