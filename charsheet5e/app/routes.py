@@ -10,7 +10,7 @@ from werkzeug.urls import url_parse
 def index():
     return render_template("index.html", title='Homepage')
 
-@app.route('/login', method=['POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -32,7 +32,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/signup')
+@app.route('/signup', ['GET', 'POST'])
 def signup():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
