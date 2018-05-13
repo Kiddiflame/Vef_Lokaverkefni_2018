@@ -10,7 +10,7 @@ from werkzeug.urls import url_parse
 def index():
     return render_template("index.html", title='Homepage')
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
@@ -25,15 +25,15 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
         return redirect(next_page)
-    return render_template("login.html", title='Log in')
+    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/signup', ['GET', 'POST'])
-def signup():
+@app.route('/register', methods=['GET', 'POST'])
+def register():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = RegistrationForm()
@@ -44,7 +44,7 @@ def signup():
         db.session.commit()
         flash('Congratulations, you are now a registered user!')
         return redirect(url_for('login'))
-    return render_template("signup.html", title='Sign up', form=form)
+    return render_template('register.html', title='Register', form=form)
 
 
 @app.route('/contact')
@@ -52,6 +52,6 @@ def contact():
     return render_template("contact.html", title='Contact us')
 
 
-@app.route('/character-creator', methods = ['GET','POST'])
+@app.route('/character-creator', methods=['GET','POST'])
 def create():
-    return render_template("charsheet.html", title='Create')
+    return render_template("char_sheet.html", title='Create')

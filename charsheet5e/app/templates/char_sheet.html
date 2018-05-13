@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<!--<link rel="stylesheet" type="text/css" href="../static/css/char_sheet.css">
-	<link type="text/css" rel="stylesheet" href="http://fakedomain.com/smilemachine/html.css" />-->
-	
-</head>
-<body>
+{% extends "base.html" %}
+
+
+{% block links %}
+	<!--<link rel="stylesheet" type="text/css" href="../static/css/char_sheet.css">-->
+    <script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="../static/js/char_sheet.js"></script>
+{% endblock %}
+
+
+{% block content %}
 <form class="charsheet">
   <header>
     <section class="charname">
@@ -372,8 +374,5 @@
     </section>
   </main>
 </form>
-</body>
-<script src="http://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="../static/js/char_sheet.js"></script>
-</html>
+{% endblock %}
 
