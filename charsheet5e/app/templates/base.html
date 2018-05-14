@@ -17,9 +17,6 @@
         &nbsp;
         &nbsp;
         <a href="{{ url_for('create') }}">Character sheet creator</a>
-        &nbsp;
-        &nbsp;
-        &nbsp;
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
         {% else %}
