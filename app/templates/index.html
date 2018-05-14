@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block links %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/semantic.css') }}">
+<script src="{{ url_for('static', filename='js/semantic.js') }}"></script>
+{% endblock %}
+
+{% block content %}
+<p>Welcome to the DND 5th edition character sheet creator!</p>
+{% endblock %}
