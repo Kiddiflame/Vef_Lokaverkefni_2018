@@ -2,4 +2,5 @@ Flask==0.12.2
 flask-wtf==0.14
 Flask_Migrate==2.1.1
 flask-sqlalchemy==2.3.1
-flask-login==0.4.1gunicorn==19.8.1
+flask-login==0.4.1
+gunicorn==19.8.1
