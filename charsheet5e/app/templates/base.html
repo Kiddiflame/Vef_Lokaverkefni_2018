@@ -1,23 +1,38 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/semantic.css') }}">
-	<script src="{{ url_for('static', filename='js/semantic.js') }}"></script>
-	<script type="text/javascript" src="jquery.3.js"></script>
 	<title>{{title}} - DND5e Character Sheet Creator</title>
 	{% block links %}
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/semantic.css') }}">
+    <script src="{{ url_for('static', filename='js/semantic.js') }}"></script>
 	{% endblock %}
 </head>
 <body>
     <div>
-        DND 5e Character Sheet Creator:
+        <h1>DND 5e Character Sheet Creator</h1>
+        <br>
         <a href="{{ url_for('index') }}">Home</a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <a href="{{ url_for('create') }}">Character sheet creator</a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
         {% if current_user.is_anonymous %}
         <a href="{{ url_for('login') }}">Login</a>
         {% else %}
+        &nbsp;
+        &nbsp;
+        &nbsp;
         <a href="{{ url_for('library') }}">Library</a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
     </div>
+    <br>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <ul>
