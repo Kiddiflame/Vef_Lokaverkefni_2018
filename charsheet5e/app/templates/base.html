@@ -7,10 +7,11 @@
     <script src="{{ url_for('static', filename='js/semantic.js') }}"></script>
 	{% endblock %}
 </head>
-<body>
+<body style="background-color: #fff">
+    <h1>DND 5e Character Sheet Creator</h1>
     <div>
-        <h1>DND 5e Character Sheet Creator</h1>
         <br>
+        <hr>
         <a href="{{ url_for('index') }}">Home</a>
         &nbsp;
         &nbsp;
@@ -31,6 +32,7 @@
         &nbsp;
         <a href="{{ url_for('logout') }}">Logout</a>
         {% endif %}
+        <hr>
     </div>
     <br>
     {% with messages = get_flashed_messages() %}
