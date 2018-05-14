@@ -5,6 +5,7 @@ from app.models import User, Char_sheet
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 
+
 @app.route('/')
 @app.route('/index')
 def index():
@@ -51,7 +52,22 @@ def register():
 def contact():
     return render_template("contact.html", title='Contact us')
 
+@app.route('/library', methods=['GET', 'POST'])
+def library():
+    # show character sheets (character name, timestamp, etc)
+    return render_template("library.html", title="library")
+
+@app.route('/edit')
+def edit():
+    return render_template("edit.html", title="edit")
 
 @app.route('/character-creator', methods=['GET','POST'])
 def create():
+    if request.method == 'POST':
+        if request.form['submit']:
+            try:
+                # save character sheet to database
+                flash('character sheet created successfully.')
+            except:
+                flash('an error occured while trying to create the character sheet. Please try again.')
     return render_template("char_sheet.html", title='Create')
